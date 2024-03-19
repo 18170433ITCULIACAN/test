@@ -1,0 +1,82 @@
+<div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="title-box">
+          <h1 class="title-text">Contacto de soporte!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="nombreCompleto">Nombre Completo:</label>
+        <input 
+            formControlName="nombreCompleto"
+            id="nombreCompleto" 
+            type="text" 
+            class="form-control"
+            aria-describedby="emailHelp" required>
+       </div>
+  
+       <div class="form-group">
+        <label for="nombreEmpresa">Nombre de la empresa:</label>
+        <input 
+            formControlName="nombreEmpresa"
+            id="nombreEmpresa" 
+            type="text" 
+            class="form-control"
+            aria-describedby="emailHelp" required>
+       </div>
+  
+       <div class="form-group">
+        <label for="inputEmail">Correo electrónico:</label>
+        <input 
+            formControlName="inputEmail"
+            id="inputEmail" 
+            type="email" 
+            class="form-control"
+            aria-describedby="emailHelp" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+       </div>
+  
+       <div class="row">
+        <div class="col-md-6 form-group">
+          <label for="inputTelefono">Teléfono:</label>
+          <input 
+            formControlName="inputTelefono"
+            id="inputTelefono" 
+            type="tel" 
+            class="form-control"
+            aria-describedby="emailHelp" 
+            pattern="[0-9]{10}" 
+            title="Ingresa un número de teléfono de 10 dígitos" 
+            required>
+        </div>
+        
+        <div class="col-md-6 mb-3">
+          <label for="inputCategoria" class="form-label">Categoría:</label><br>
+          <select class="form-select"          
+           formControlName="inputCategoria"
+           id="inputCategoria" aria-describedby="emailHelp" required>
+            <option value="" selected>Selecciona una categoría</option>
+            <option value="Categoria 1">Categoria 1</option>
+            <option value="Categoria 2">Categoria 2</option>
+            <option value="Categoria 3">Categoria 3</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="inputMensaje">Mensaje:</label>
+        <input 
+            formControlName="inputMensaje"
+            id="inputMensaje" 
+            type="text" 
+            class="form-control"
+            aria-describedby="emailHelp"  required>
+       </div><br>
+  
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+  </div>
