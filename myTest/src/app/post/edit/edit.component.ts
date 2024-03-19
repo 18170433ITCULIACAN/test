@@ -19,22 +19,14 @@ export class EditComponent {
   post!: Post;
   form!: FormGroup;
       
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
+
   constructor(
     public postService: PostService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['postId'];
     this.postService.find(this.id).subscribe((data: Post)=>{
@@ -47,24 +39,16 @@ export class EditComponent {
     });
   }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   get f(){
     return this.form.controls;
   }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   submit(){
     console.log(this.form.value);
     this.postService.update(this.id, this.form.value).subscribe((res:any) => {
-         console.log('Post updated successfully!');
+         console.log('Post actualizado correctamente!');
          this.router.navigateByUrl('post/index');
     })
   }

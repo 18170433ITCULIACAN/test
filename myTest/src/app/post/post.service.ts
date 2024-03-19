@@ -13,29 +13,17 @@ export class PostService {
   
   private apiURL = "https://jsonplaceholder.typicode.com";
     
-  /*------------------------------------------
-  --------------------------------------------
-  Http Header Options
-  --------------------------------------------
-  --------------------------------------------*/
+
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }
    
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
+
   constructor(private httpClient: HttpClient) { }
     
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   getAll(): Observable<any> {
   
     return this.httpClient.get(this.apiURL + '/posts/')
@@ -45,11 +33,7 @@ export class PostService {
     )
   }
     
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   create(post:Post): Observable<any> {
   
     return this.httpClient.post(this.apiURL + '/posts/', JSON.stringify(post), this.httpOptions)
@@ -59,11 +43,7 @@ export class PostService {
     )
   }  
     
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   find(id:number): Observable<any> {
   
     return this.httpClient.get(this.apiURL + '/posts/' + id)
@@ -73,11 +53,7 @@ export class PostService {
     )
   }
     
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   update(id:number, post:Post): Observable<any> {
   
     return this.httpClient.put(this.apiURL + '/posts/' + id, JSON.stringify(post), this.httpOptions)
@@ -87,11 +63,7 @@ export class PostService {
     )
   }
        
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   delete(id:number){
     return this.httpClient.delete(this.apiURL + '/posts/' + id, this.httpOptions)
   
@@ -100,11 +72,7 @@ export class PostService {
     )
   }
       
-  /** 
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   errorHandler(error:any) {
     let errorMessage = '';
     if(error.error instanceof ErrorEvent) {

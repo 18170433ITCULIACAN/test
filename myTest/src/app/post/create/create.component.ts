@@ -15,47 +15,34 @@ import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angula
 export class CreateComponent {
   
   form!: FormGroup;
-      
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
+
   constructor(
     public postService: PostService,
     private router: Router
   ) { }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   ngOnInit(): void {
     this.form = new FormGroup({
-      title: new FormControl('', [Validators.required]),
-      body: new FormControl('', Validators.required)
+      nombreCompleto: new FormControl('', [Validators.required]),
+      nombreEmpresa: new FormControl('', [Validators.required]),
+      inputEmail: new FormControl('', [Validators.required, Validators.email]),
+      inputTelefono: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
+      inputCategoria: new FormControl('', [Validators.required]),
+      inputMensaje: new FormControl('', [Validators.required]),
     });
   }
-      
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
+
   get f(){
     return this.form.controls;
   }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   submit(){
     console.log(this.form.value);
     this.postService.create(this.form.value).subscribe((res:any) => {
-         console.log('Post created successfully!');
+         console.log('Post Creado Correctamente!');
          this.router.navigateByUrl('post/index');
     })
   }
