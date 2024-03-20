@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
   
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post } from '../formulario';
+import { Post } from '../post';
   
 @Component({
   selector: 'app-view',
@@ -16,22 +16,14 @@ export class ViewComponent {
   id!: number;
   post!: Post;
       
-  /*------------------------------------------
-  --------------------------------------------
-  Created constructor
-  --------------------------------------------
-  --------------------------------------------*/
+
   constructor(
     public postService: PostService,
     private route: ActivatedRoute,
     private router: Router
    ) { }
       
-  /**
-   * Write code on Method
-   *
-   * @return response()
-   */
+
   ngOnInit(): void {
     this.id = this.route.snapshot.params['postId'];
           

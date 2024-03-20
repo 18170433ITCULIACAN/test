@@ -7,7 +7,7 @@ import { EditComponent } from './post/edit/edit.component';
 import { BienvenidaComponent } from './post/bienvenida/bienvenida.component';
 
 export const routes: Routes = [
-      { path: '', redirectTo: 'post/create', pathMatch: 'full'},
+      { path: '', redirectTo: 'post/index', pathMatch: 'full'},
       { path: 'post/index', component: IndexComponent },
       { path: 'post/:postId/view', component: ViewComponent },
       { path: 'post/create', component: CreateComponent },

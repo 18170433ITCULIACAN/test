@@ -6,29 +6,82 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
     
         <div class="form-group">
-            <label for="title">Title:</label>
+            <label for="nombreCompleto">Nombre Completo:</label>
             <input 
-                formControlName="title"
-                id="title" 
+                formControlName="nombreCompleto"
+                id="nombreCompleto" 
                 type="text" 
                 [(ngModel)]="post.nombreCompleto"
                 class="form-control">
-            <div *ngIf="f['title'].touched && f['title'].invalid" class="alert alert-danger">
-                <div *ngIf="f['title'].errors && f['title'].errors['required']">Title is required.</div>
+            <div *ngIf="f['nombreCompleto'].touched && f['nombreCompleto'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombreCompleto'].errors && f['nombreCompleto'].errors['required']">Nombre Completo es requerido.</div>
             </div>
         </div>
            
         <div class="form-group">
-            <label for="body">Body</label>
-            <textarea 
-                formControlName="body"
-                id="body" 
+            <label for="nombreEmpresa">Nombre de la Empresa:</label>
+            <input 
+                formControlName="nombreEmpresa"
+                id="nombreEmpresa" 
                 type="text" 
                 [(ngModel)]="post.nombreEmpresa"
                 class="form-control">
+            <div *ngIf="f['nombreEmpresa'].touched && f['nombreEmpresa'].invalid" class="alert alert-danger">
+                <div *ngIf="f['nombreEmpresa'].errors && f['nombreEmpresa'].errors['required']">Nombre de la Empresa es requerido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="correoElectronico">Correo Electrónico:</label>
+            <input 
+                formControlName="correoElectronico"
+                id="correoElectronico" 
+                type="email" 
+                [(ngModel)]="post.correoElectronico"
+                class="form-control">
+            <div *ngIf="f['correoElectronico'].touched && f['correoElectronico'].invalid" class="alert alert-danger">
+                <div *ngIf="f['correoElectronico'].errors && f['correoElectronico'].errors['required']">Correo Electrónico es requerido.</div>
+                <div *ngIf="f['correoElectronico'].errors && f['correoElectronico'].errors['email']">Correo Electrónico debe ser válido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input 
+                formControlName="telefono"
+                id="telefono" 
+                type="number" 
+                [(ngModel)]="post.telefono"
+                class="form-control">
+            <div *ngIf="f['telefono'].touched && f['telefono'].invalid" class="alert alert-danger">
+                <div *ngIf="f['telefono'].errors && f['telefono'].errors['required']">Teléfono es requerido.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="categoria">Categoría:</label>
+            <input 
+                formControlName="categoria"
+                id="categoria" 
+                type="text" 
+                [(ngModel)]="post.categoria"
+                class="form-control">
+            <div *ngIf="f['categoria'].touched && f['categoria'].invalid" class="alert alert-danger">
+                <div *ngIf="f['categoria'].errors && f['categoria'].errors['required']">Categoría es requerida.</div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="mensaje">Mensaje:</label>
+            <textarea 
+                formControlName="mensaje"
+                id="mensaje" 
+                type="text" 
+                [(ngModel)]="post.mensaje"
+                class="form-control">
             </textarea>
-            <div *ngIf="f['body'].touched && f['body'].invalid" class="alert alert-danger">
-                <div *ngIf="f['body'].errors && f['body'].errors['required']">Body is required.</div>
+            <div *ngIf="f['mensaje'].touched && f['mensaje'].invalid" class="alert alert-danger">
+                <div *ngIf="f['mensaje'].errors && f['mensaje'].errors['required']">Mensaje es requerido.</div>
             </div>
         </div>
          

@@ -21,15 +21,14 @@ export class CreateComponent {
     private router: Router
   ) { }
       
-
   ngOnInit(): void {
     this.form = new FormGroup({
       nombreCompleto: new FormControl('', [Validators.required]),
       nombreEmpresa: new FormControl('', [Validators.required]),
-      inputEmail: new FormControl('', [Validators.required, Validators.email]),
-      inputTelefono: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
-      inputCategoria: new FormControl('', [Validators.required]),
-      inputMensaje: new FormControl('', [Validators.required]),
+      correoElectronico: new FormControl('', [Validators.required, Validators.email]),
+      telefono: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
+      categoria: new FormControl('', [Validators.required]),
+      mensaje: new FormControl('', [Validators.required]),
     });
   }
 
@@ -40,7 +39,6 @@ export class CreateComponent {
       
 
   submit(){
-    console.log(this.form.value);
     this.postService.create(this.form.value).subscribe((res:any) => {
          console.log('Post Creado Correctamente!');
          this.router.navigateByUrl('post/index');

@@ -1,21 +1,37 @@
 <div class="container">
-    <h1>View Post</h1>
+    <h1>Detalle</h1>
   
-    <a href="#" routerLink="/post/index" class="btn btn-primary">Back</a>
+    <a href="post/index" routerLink="/post/index" class="btn btn-primary">Back</a>
    
     <div>
         <strong>ID:</strong>
         <p>{{ post.id }}</p>
     </div>
-   
     <div>
-        <strong>Title:</strong>
+        <strong>Nombre Completo:</strong>
         <p>{{ post.nombreCompleto }}</p>
     </div>
-   
     <div>
-        <strong>Body:</strong>
+        <strong>Nombre Empresa:</strong>
         <p>{{ post.nombreEmpresa }}</p>
+    </div>
+
+    <div>
+        <strong>Correo Electronico:</strong>
+        <p>{{ post.correoElectronico }}</p>
+    </div>
+    <div>
+        <strong>Telefono:</strong>
+        <p>{{ post.telefono }}</p>
+    </div>
+    <div>
+        <strong>Categoria:</strong>
+        <p>{{ post.categoria }}</p>
+    </div>
+    <div>
+        <strong>Mensaje:</strong>
+        <p>{{ post.mensaje }}</p>
     </div>
    
 </div>
+

@@ -31,10 +31,10 @@
        </div>
   
        <div class="form-group">
-        <label for="inputEmail">Correo electrónico:</label>
+        <label for="correoElectronico">Correo electrónico:</label>
         <input 
-            formControlName="inputEmail"
-            id="inputEmail" 
+            formControlName="correoElectronico"
+            id="correoElectronico" 
             type="email" 
             class="form-control"
             aria-describedby="emailHelp" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
@@ -42,10 +42,10 @@
   
        <div class="row">
         <div class="col-md-6 form-group">
-          <label for="inputTelefono">Teléfono:</label>
+          <label for="telefono">Teléfono:</label>
           <input 
-            formControlName="inputTelefono"
-            id="inputTelefono" 
+            formControlName="telefono"
+            id="telefono" 
             type="tel" 
             class="form-control"
             aria-describedby="emailHelp" 
@@ -55,24 +55,24 @@
         </div>
         
         <div class="col-md-6 mb-3">
-          <label for="inputCategoria" class="form-label">Categoría:</label><br>
+          <label for="categoria" class="form-label">Categoría:</label><br>
           <select class="form-select"          
-           formControlName="inputCategoria"
-           id="inputCategoria" aria-describedby="emailHelp" required>
+           formControlName="categoria"
+           id="categoria" aria-describedby="emailHelp" required>
             <option value="" selected>Selecciona una categoría</option>
-            <option value="Categoria 1">Facturación</option>
-            <option value="Categoria 2">soporte técnico</option>
-            <option value="Categoria 3">ventas</option>
-            <option value="Categoria 3">información general</option>
+            <option value="Facturación">Facturación</option>
+            <option value="soporte técnico">soporte técnico</option>
+            <option value="ventas">ventas</option>
+            <option value="información general">información general</option>
           </select>
         </div>
       </div>
   
       <div class="form-group">
-        <label for="inputMensaje">Mensaje:</label>
+        <label for="mensaje">Mensaje:</label>
         <input 
-            formControlName="inputMensaje"
-            id="inputMensaje" 
+            formControlName="mensaje"
+            id="mensaje" 
             type="text" 
             class="form-control"
             aria-describedby="emailHelp"  required>

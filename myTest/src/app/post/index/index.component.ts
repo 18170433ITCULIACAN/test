@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Router } from '@angular/router';
 import { PostService } from '../post.service';
-import { Post } from '../formulario';
+import { Post } from '../post';
 @Component({
   selector: 'app-index',
   standalone: true,

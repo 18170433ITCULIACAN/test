@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
   
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post } from '../formulario';
+import { Post } from '../post';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
   
 @Component({
@@ -34,8 +34,12 @@ export class EditComponent {
     }); 
         
     this.form = new FormGroup({
-      title: new FormControl('', [Validators.required]),
-      body: new FormControl('', Validators.required)
+      nombreCompleto: new FormControl('', [Validators.required]),
+      nombreEmpresa: new FormControl('', [Validators.required]),
+      correoElectronico: new FormControl('', [Validators.required, Validators.email]),
+      telefono: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
+      categoria: new FormControl('', [Validators.required]),
+      mensaje: new FormControl('', [Validators.required]),
     });
   }
       
