@@ -41,13 +41,11 @@ app.get('/posts', (req, res) => {
 /* crear nuevo post */
 app.post('/posts/create', (req, res) => {
   const { nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje } = req.body;
-  const query = 'INSERT INTO posts (nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje) VALUES (?,?,?,?,?,?)';
-  const values = [nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje];
-
-  db.query(query, values, (err, result) => {
+  db.query('INSERT INTO posts (nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje) VALUES (?,?,?,?,?,?)',
+   [nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje], (err, result) => {
     if (err) {
       console.error('Error al crear post:', err);
-      res.status(500).send('Error al crear post');
+      res.status(500).send('Error al crear post', err);
       return;
     }
 
@@ -79,8 +77,8 @@ app.get('/posts/:id', (req, res) => {
 app.put('/posts/:id', (req, res) => {
   const postId = req.params.id;
   const { nombreCompleto, nombreEmpresa, correoElectrónico, telefono, categoria, mensaje } = req.body;
-
-  db.query('UPDATE posts SET nombreCompleto = ?, nombreEmpresa = ?, correoElectrónico = ?, telefono = ?, categoria = ?, mensaje = ? WHERE id = ?;  ', [nombreCompleto, nombreEmpresa, correoElectrónico, telefono, categoria, mensaje, postId], err => {
+  db.query('UPDATE posts SET nombreCompleto = ?, nombreEmpresa = ?, correoElectrónico = ?, telefono = ?, categoria = ?, mensaje = ? WHERE id = ?;  ',
+                              [nombreCompleto, nombreEmpresa, correoElectrónico, telefono, categoria, mensaje, postId], err => {
     if (err) {
       res.status(500).send('Error actualizar post');
       return;

@@ -34,21 +34,19 @@ export class PostService {
 
   create(post: Post): Observable<any> {
     console.log('Post a crear:', post);
-    return this.httpClient.post<any>(`${this.apiURL}/posts/create`, post, this.httpOptions)
+    return this.httpClient.post(this.apiURL + '/posts/create', JSON.stringify(post), this.httpOptions)
       .pipe(
         catchError(this.handleError)
       );
   }
   private handleError(error: any) {
     console.error('Ha ocurrido un error:', error);
-    return throwError('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.'); // Puedes personalizar este mensaje de error según tus necesidades
+    return throwError('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
   }
 
   
 
   find(id:number): Observable<any> {
-
-  
     return this.httpClient.get(this.apiURL + '/posts/' + id)
     .pipe(
       catchError(this.errorHandler)
