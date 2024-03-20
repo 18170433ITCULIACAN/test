@@ -10,8 +10,8 @@ const port = 3000;
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: 'Daniel1516.',
-  database: 'node_express_mysql'
+  password: 'root',
+  database: 'formulario'
 });
   
 /* Conexion a MySQL */
@@ -29,7 +29,7 @@ app.use(cors());
 /* Routes */
 /* lista de todos los post */
 app.get('/posts', (req, res) => {
-  db.query('SELECT * FROM posts', (err, results) => {
+  db.query('SELECT * FROM formulario', (err, results) => {
     if (err) {
       res.status(500).send('Error al recuperar posts');
       return;
@@ -41,7 +41,7 @@ app.get('/posts', (req, res) => {
 /* crear nuevo post */
 app.post('/posts/create', (req, res) => {
   const { nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje } = req.body;
-  db.query('INSERT INTO posts (nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje) VALUES (?,?,?,?,?,?)',
+  db.query('INSERT INTO formulario (nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje) VALUES (?,?,?,?,?,?)',
    [nombreCompleto, nombreEmpresa, correoElectronico, telefono, categoria, mensaje], (err, result) => {
     if (err) {
       console.error('Error al crear post:', err);
@@ -60,7 +60,7 @@ app.post('/posts/create', (req, res) => {
 /* obtener post especifico */
 app.get('/posts/:id', (req, res) => {
   const postId = req.params.id;
-  db.query('SELECT * FROM posts WHERE id = ?', postId, (err, result) => {
+  db.query('SELECT * FROM formulario WHERE id = ?', postId, (err, result) => {
     if (err) {
       res.status(500).send('Error al obtener post');
       return;
@@ -77,26 +77,23 @@ app.get('/posts/:id', (req, res) => {
 app.put('/posts/:id', (req, res) => {
   const postId = req.params.id;
   const { nombreCompleto, nombreEmpresa, correoElectrónico, telefono, categoria, mensaje } = req.body;
-  db.query('UPDATE posts SET nombreCompleto = ?, nombreEmpresa = ?, correoElectrónico = ?, telefono = ?, categoria = ?, mensaje = ? WHERE id = ?;  ',
-                              [nombreCompleto, nombreEmpresa, correoElectrónico, telefono, categoria, mensaje, postId], err => {
-    if (err) {
-      res.status(500).send('Error actualizar post');
-      return;
-    }
-    db.query('SELECT * FROM posts WHERE id = ?', postId, (err, result) => {
-      if (err) {
-        res.status(500).send('Error al actualizar post');
-        return;
-      }
-      res.json(result[0]);
-    });
-  });
+  db.query('UPDATE formulario SET nombreCompleto = ?, nombreEmpresa = ?, correoElectrónico = ?, telefono = ?, categoria = ?, mensaje = ? WHERE id = ?;  ',
+[nombreCompleto, nombreEmpresa, correoElectrónico, telefono, categoria, mensaje, postId], err => {
+  if (err) {
+    console.error('Error al crear post:', err);
+    res.status(500).send('Error al crear post', err);
+    return;
+  }
+
+  console.log('Post creado correctamente');
+  res.status(201).send('Post creado correctamente');
+});
 });
   
 /* eliminar post */
 app.delete('/posts/:id', (req, res) => {
   const postId = req.params.id;
-  db.query('DELETE FROM posts WHERE id = ?', postId, err => {
+  db.query('DELETE FROM formulario WHERE id = ?', postId, err => {
     if (err) {
       res.status(500).send('Error Eliminado post');
       return;

@@ -78,7 +78,7 @@ export class PostService {
     if(error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
-      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+      errorMessage = `Error codigo: ${error.status}\nMensaje : ${error.message}`;
     }
     return throwError(errorMessage);
  }
