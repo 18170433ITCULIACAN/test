@@ -31,19 +31,22 @@ export class PostService {
     )
   }
       
-
   create(post: Post): Observable<any> {
     console.log('Post a crear:', post);
     return this.httpClient.post(this.apiURL + '/posts/create', JSON.stringify(post), this.httpOptions)
       .pipe(
-        catchError(this.handleError)
+        catchError(this.handleResponse)
       );
   }
-  private handleError(error: any) {
-    console.error('Ha ocurrido un error:', error);
+
+  private handleResponse(response: any) {
+    if (response.status === 201) {
+      console.log('Post creado correctamente');
+      return 'Post creado correctamente';
+    }
+    console.error('Ha ocurrido un error:', response);
     return throwError('Ocurrió un error en la solicitud. Por favor, inténtalo de nuevo más tarde.');
   }
-
   
 
   find(id:number): Observable<any> {
