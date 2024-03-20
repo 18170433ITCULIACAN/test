@@ -4,14 +4,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
   
-import { Post } from './post';
+import { Post } from './formulario';
   
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
   
-  private apiURL = "https://jsonplaceholder.typicode.com";
+  private apiURL = "http://127.0.0.1:3000";
     
 
   httpOptions = {

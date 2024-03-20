@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
   
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post } from '../post';
+import { Post } from '../formulario';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
   
 @Component({

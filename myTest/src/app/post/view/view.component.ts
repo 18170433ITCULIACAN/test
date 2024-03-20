@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
   
 import { PostService } from '../post.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Post } from '../post';
+import { Post } from '../formulario';
   
 @Component({
   selector: 'app-view',
